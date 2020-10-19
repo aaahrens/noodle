@@ -42,6 +42,7 @@ class StreamListener(tweepy.StreamListener):
                 print("done writing")
 
     def on_error(self, status_code):
+        print("error fetching tweets with status code ", status_code)
         if status_code == 420:
             cdate = "Error code 420 at:" + str(datetime.datetime.now())
             logging.info(cdate)

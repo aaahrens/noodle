@@ -16,16 +16,24 @@ jobs:
 
       - name: Install deps
         run: pip install -r requirements.txt
+
       - name: Run the thingy
         run: python app.py
         env:
           TWITTER_KEY: ${{ secrets.TWITTER_KEY }}
           TWITTER_SECRET: ${{ secrets.TWITTER_SECRET }}
 
-      - name: Commit changes
-        uses: EndBug/add-and-commit@v5
+      - name: push
+        uses: actions-x/commit@v2
         with:
-          message: "pulled data for sha ${{ env.GITHUB_SHA }}"
-          add: "data/tweets.csv"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: GitHub Actions Autocommitter
+          branch: main
+          files: data/tweets.csv
+
+#      - name: Commit changes
+#        uses: EndBug/add-and-commit@v5
+#        with:
+#          message: "pulled data for sha ${{ env.GITHUB_SHA }}"
+#          add: "data/tweets.csv"
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
