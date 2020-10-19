@@ -64,8 +64,8 @@ def app():
     listener = StreamListener()
     # write the header to the cv if it doesnt have it already
     write_header()
-    while not listener.exit:
-        tweepy.Stream(api.auth, listener=listener).sample()
+    # while not listener.exit:
+    #     tweepy.Stream(api.auth, listener=listener).sample()
     print("exiting after hitting rate limit, has errored out")
     return 0
 
