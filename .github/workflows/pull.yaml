@@ -1,0 +1,26 @@
+name: Create our Weekly Meeting notes issue
+on:
+  push:
+#  schedule:
+#    - cron: '0 14 * * 1'
+jobs:
+  issue:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.8.5 - 3.8.5'
+      - name: Install deps
+        run: pip install -r requirements.txt
+      - name: Run the thingy
+        run: python app.py
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v5
+        with:
+          author_name: Your Name
+          author_email: mail@example.com
+          message: "pulled data"
+          add: "data/tweets.csv"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
