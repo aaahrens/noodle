@@ -25,8 +25,8 @@ jobs:
       - name: Commit changes
         uses: EndBug/add-and-commit@v5
         with:
-          author_name: Your Name
-          author_email: mail@example.com
+          author_name: aaahrens
+          author_email: adamalanahrens@gmail.com
           message: "pulled data"
           add: "data/tweets.csv"
         env:
