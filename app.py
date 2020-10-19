@@ -50,7 +50,7 @@ class StreamListener(tweepy.StreamListener):
 
 
 def write_header():
-    with open(csv_name, 'a') as csvfile:
+    with open(csv_name, 'w') as csvfile:
         writer = csv.DictWriter(csvfile, delimiter=',', fieldnames=fieldnames)
         if not file_exists:
             writer.writeheader()  # file doesn't exist yet, write a header
